@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<script>
+window.shareData = {
+"imgUrl": "http://bgames.duapp.com/beatcat/face.jpg",
+"timeLineLink": "http://bgames.duapp.com/beatcat/",
+"sendFriendLink": "http://bgames.duapp.com/beatcat/",
+"weiboLink": "http://bgames.duapp.com/beatcat/",
+"tTitle": "我打爆1000只神经猫，不服来挑战！！！",
+"tContent": "快来暴打神经猫！打开音效效果最佳！！",
+"fTitle": "我打爆1000只神经猫，不服来挑战！！！",
+"fContent": "快来暴打神经猫！打开音效效果最佳！！",
+"wContent": "快来暴打神经猫！打开音效效果最佳！！"
+
+};
+function init(){
+document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+	console.log('haha');
+window.shareData = {
+"imgUrl": "http://bgames.duapp.com/beatcat/face.jpg",
+"timeLineLink": "http://bgames.duapp.com/beatcat/",
+"sendFriendLink": "http://bgames.duapp.com/beatcat/",
+"weiboLink": "http://bgames.duapp.com/beatcat/",
+"tTitle": "我打爆1000只神经猫，不服来挑战！！！",
+"tContent": "快来暴打神经猫！打开音效效果最佳！！",
+"fTitle": "我打爆1000只神经猫，不服来挑战！！！",
+"fContent": "快来暴打神经猫！打开音效效果最佳！！",
+"wContent": "快来暴打神经猫！打开音效效果最佳！！"
+};
+// 发送给好友
+WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+WeixinJSBridge.invoke('sendAppMessage', {
+"img_url": window.shareData.imgUrl,
+"img_width": "640",
+"img_height": "640",
+"link": window.shareData.sendFriendLink,
+"desc": window.shareData.fContent,
+"title": window.shareData.fTitle
+}, function (res) {
+_report('send_msg', '111111');
+})
+});
+
+
+// 分享到朋友圈
+WeixinJSBridge.on('menu:share:timeline', function (argv) {
+WeixinJSBridge.invoke('shareTimeline', {
+"img_url": window.shareData.imgUrl,
+"img_width": "640",
+"img_height": "640",
+"link": window.shareData.timeLineLink,
+"desc": window.shareData.tContent,
+"title": window.shareData.tTitle
+}, function (res) {
+_report('timeline', res.err_msg);
+});
+});
+
+})}
+</script>
+</head>
+<body>
+<div class="bdsharebuttonbox">haha</div>
+<script> init() </script>
+</body>
+
+</html>
